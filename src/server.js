@@ -1,9 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv'
-import cakesRouter from './routes/cakes.routes.js';
-import ordersRouter from './routes/orders.routes.js';
-import clientsRouter from './routes/clients.routes.js';
+import dotenv from 'dotenv';
+import getOrdersByClientIdRouter from './routes/getOdersByClientId.router.js';
+import getOrdersRouter from './routes/getOrders.route.js';
+import getOrdersByIdRouter from './routes/getOrdersById.route.js';
+import postCakeRouter from './routes/postCake.route.js';
+import postClientsRouter from './routes/postClients.route.js';
+import postOrderRouter from './routes/postOrder.route.js';
 dotenv.config()
 
 const app = express()
@@ -11,9 +14,16 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-app.use([cakesRouter, ordersRouter, clientsRouter])
+app.use([
+    getOrdersByClientIdRouter, 
+    getOrdersRouter, 
+    getOrdersByIdRouter,
+    postCakeRouter,
+    postClientsRouter,
+    postOrderRouter
+]);
 
 app.listen(process.env.DATABASE_URL || 5000, ()=>{
     console.log('Server running')
-})
+});
 
