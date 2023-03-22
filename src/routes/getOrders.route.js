@@ -1,6 +1,6 @@
-import { Route } from 'express';
+import { Router } from 'express';
 
-const getOrdersRouter = Route();
+const getOrdersRouter = Router();
 
 getOrdersRouter.get('/orders');
 
