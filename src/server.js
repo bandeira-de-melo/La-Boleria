@@ -23,7 +23,7 @@ app.use([
     postOrderRouter
 ]);
 
-app.listen(process.env.DATABASE_URL || 5000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('Server running')
 });
 
