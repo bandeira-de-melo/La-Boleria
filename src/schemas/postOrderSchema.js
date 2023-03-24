@@ -1,10 +1,10 @@
 import Joi from 'joi';
 
-const postOrderSchema = ({
-    clientId: Joi.string().min(1).required(),
-    cakeId: Joi.string().min(1).required(),
-    quantity: Joi.string().min(0).max(5).required(),
-    totalPrice: Joi.number().min(1).required()
+const postOrderSchema = Joi.object({
+    clientId: Joi.number().required(),
+    cakeId: Joi.number().required(),
+    quantity: Joi.number().required().min(0).max(5),
+    totalPrice: Joi.number().required(),
 });
 
 export default postOrderSchema;
