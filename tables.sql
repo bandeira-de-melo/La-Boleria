@@ -18,6 +18,6 @@ CREATE TABLE orders(
     clientId INTEGER REFERENCES "clients"("id"),
     cakeId INTEGER REFERENCES "cakes"("id"),
     quantity INTEGER NOT NULL,
-    createdAt timestamp NOT NULL default now(),
+    createdAt timestamp(0) without time zone NOT NULL default now(),
     totalPrice NUMERIC NOT NULL
 );
